@@ -1,10 +1,7 @@
 export interface Project {
-  title: string;
-  description: string;
   tags: string[];
   href?: string;
   github?: string;
-  image?: string;
 }
 
 export interface Skill {
@@ -14,11 +11,6 @@ export interface Skill {
 }
 
 export type SkillCategory = "frontend" | "backend" | "devops" | "tools";
-
-export interface NavLink {
-  label: string;
-  href: string;
-}
 
 export interface SocialLink {
   label: string;
