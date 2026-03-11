@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "Stop": [{
+      "matcher": "*",
+      "hooks": [{
+        "type": "prompt",
+        "prompt": "Check git diff --name-only for this session. If it includes CLAUDE.md, AGENTS.md, or files under .claude/, say: 'Project skills may be outdated. Run /forge:upgrade to sync.' Otherwise say nothing."
+      }]
+    }]
+  }
+}

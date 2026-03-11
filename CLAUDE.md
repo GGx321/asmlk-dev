@@ -33,13 +33,34 @@ src/
   types/           # TypeScript interfaces
 ```
 
+## Pipeline
+
+- **Mode:** Sequential
+- **Execution:** Balanced (adaptive)
+- **Git workflow:** Trunk-based
+- **Commits:** Conventional Commits (`feat:`, `fix:`, `docs:`, etc.)
+
 ## Conventions
 
-- Components: named exports, PascalCase filenames in kebab-case
+- **Files:** kebab-case (`section-heading.tsx`)
+- **Components:** PascalCase named exports (`Hero`, `Button`, `Card`)
+- **Constants:** UPPER_SNAKE_CASE (`SITE_CONFIG`, `NAV_LINKS`)
+- **Types/Interfaces:** PascalCase (`Project`, `Skill`, `ContactFormData`)
+- **Schemas:** camelCase (`contactFormSchema`)
+- **API routes:** kebab-case dirs (`api/contact/route.ts`)
 - Styling: Tailwind utility classes, CSS variables in globals.css
 - Validation: Zod schemas in `lib/validations.ts`, shared between client & server
 - Config data (skills, projects, nav): `lib/constants.ts`
 - API routes return `{ success: boolean; error?: string }`
+
+## Quality Gates
+
+- Build verification (`npm run build`)
+- Secret scanning (no secrets in code)
+- Dependency audit (`npm audit`)
+- Input validation (Zod on API boundaries)
+- Design token consistency (CSS variables)
+- Responsive breakpoints (mobile/tablet/desktop)
 
 ## Environment Variables
 
