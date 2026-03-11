@@ -16,12 +16,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={id}
           rows={5}
-          className={`resize-none rounded-lg border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:outline-none focus:ring-2 focus:ring-accent/40 ${
-            error ? "border-red-500/60" : "border-border"
+          className={`resize-none rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:outline-none focus:ring-2 focus:ring-accent/40 ${
+            error ? "border-accent/60" : "border-white/10"
           } ${className}`}
           {...props}
         />
-        {error && <p className="text-xs text-red-400">{error}</p>}
+        {error && <p className="text-xs text-accent">{error}</p>}
       </div>
     );
   }

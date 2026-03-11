@@ -12,7 +12,7 @@ export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
       {subtitle && (
         <p className="mt-3 text-muted">{subtitle}</p>
       )}
-      <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-accent to-accent-secondary" />
+      <div className="mx-auto mt-4 h-0.5 w-12 rounded-full bg-accent" />
     </div>
   );
 }
