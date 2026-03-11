@@ -1,15 +1,19 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const STATS = [
-  { value: "5+", label: "Лет опыта" },
-  { value: "30+", label: "Проектов" },
-  { value: "15+", label: "Технологий" },
-] as const;
+  { value: "5+", key: "experience" as const },
+  { value: "30+", key: "projects" as const },
+  { value: "15+", key: "technologies" as const },
+];
 
 export function About() {
+  const t = useTranslations("about");
+  const paragraphs = t.raw("paragraphs") as string[];
+
   return (
     <section id="about" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
@@ -19,10 +23,7 @@ export function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <SectionHeading
-            title="Обо мне"
-            subtitle="Немного о моём опыте и подходе к разработке"
-          />
+          <SectionHeading title={t("title")} subtitle={t("subtitle")} />
         </motion.div>
 
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
@@ -33,20 +34,9 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-4 text-muted"
           >
-            <p>
-              Я фуллстак разработчик с опытом создания сложных веб-приложений —
-              от MVP стартапов до высоконагруженных enterprise-систем.
-            </p>
-            <p>
-              Специализируюсь на TypeScript-экосистеме: React и Next.js на
-              фронтенде, Node.js и NestJS на бэкенде. Люблю чистую архитектуру,
-              типобезопасность и автоматизацию.
-            </p>
-            <p>
-              Верю, что хороший код — это код, который легко читать, тестировать
-              и масштабировать. Каждый проект — это не просто набор фич, а
-              продуманное решение бизнес-задачи.
-            </p>
+            {paragraphs.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
           </motion.div>
 
           <motion.div
@@ -58,13 +48,13 @@ export function About() {
           >
             {STATS.map((stat) => (
               <div
-                key={stat.label}
-                className="rounded-xl border border-border/60 bg-card p-6 text-center"
+                key={stat.key}
+                className="glass-card rounded-xl p-6 text-center"
               >
-                <p className="bg-gradient-to-r from-accent to-accent-secondary bg-clip-text text-3xl font-bold text-transparent">
-                  {stat.value}
+                <p className="text-3xl font-bold text-accent">{stat.value}</p>
+                <p className="mt-1 text-sm text-muted">
+                  {t(`stats.${stat.key}`)}
                 </p>
-                <p className="mt-1 text-sm text-muted">{stat.label}</p>
               </div>
             ))}
           </motion.div>

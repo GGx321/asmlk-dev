@@ -1,82 +1,93 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { SITE_CONFIG } from "@/lib/constants";
 
 export function Hero() {
+  const t = useTranslations("hero");
+
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
-      <GradientOrb className="-left-40 -top-40" />
-      <GradientOrb className="-bottom-40 -right-40 delay-1000" />
+    <section className="relative flex min-h-screen items-center overflow-hidden px-6">
+      <div className="pointer-events-none absolute right-0 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
 
-      <div className="relative z-10 max-w-3xl text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-4 font-mono text-sm text-accent"
-        >
-          Привет, меня зовут
-        </motion.p>
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center">
+        <div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-4 font-mono text-sm text-accent"
+          >
+            {t("greeting")}
+          </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
-        >
-          {SITE_CONFIG.name}
-        </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+          >
+            {t("name")}
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-2 text-2xl font-semibold text-muted sm:text-3xl"
-        >
-          {SITE_CONFIG.role}
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-2 text-2xl font-semibold text-muted sm:text-3xl"
+          >
+            {t("role")}
+          </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mx-auto mt-6 max-w-xl text-muted"
-        >
-          {SITE_CONFIG.description}
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-6 max-w-xl text-muted"
+          >
+            {t("description")}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
+          >
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+            >
+              {t("cta")}
+            </a>
+            <a
+              href="#projects"
+              className="glass-card inline-flex items-center justify-center gap-2 rounded-lg px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:border-white/15 hover:bg-card-hover"
+            >
+              {t("viewProjects")}
+            </a>
+          </motion.div>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center md:justify-end"
         >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent to-accent-secondary px-8 py-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-90"
-          >
-            Связаться со мной
-          </a>
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 rounded-lg border border-border px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:border-accent/50 hover:bg-card"
-          >
-            Смотреть проекты
-          </a>
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-accent/10 blur-3xl" />
+            <div className="relative h-64 w-64 overflow-hidden rounded-full border-2 border-white/10 sm:h-80 sm:w-80">
+              <div className="flex h-full w-full items-center justify-center bg-white/5 text-4xl font-bold text-muted">
+                AD
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
 
       <ScrollIndicator />
     </section>
-  );
-}
-
-function GradientOrb({ className = "" }: { className?: string }) {
-  return (
-    <div
-      className={`absolute h-[500px] w-[500px] animate-pulse rounded-full bg-accent/5 blur-[120px] ${className}`}
-    />
   );
 }
 
