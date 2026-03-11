@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Alex Developer — Fullstack Developer Portfolio",
+    "description": "Портфолио фуллстак разработчика. Создаю современные веб-приложения от идеи до продакшена.",
+    "ogTitle": "Alex Developer — Fullstack Developer",
+    "ogDescription": "Портфолио фуллстак разработчика."
+  },
+  "nav": {
+    "about": "Обо мне",
+    "skills": "Навыки",
+    "projects": "Проекты",
+    "contact": "Контакт",
+    "menu": "Меню"
+  },
+  "hero": {
+    "greeting": "Привет, меня зовут",
+    "name": "Alex Developer",
+    "role": "Fullstack Developer",
+    "description": "Создаю современные веб-приложения от идеи до продакшена. TypeScript, React, Node.js и облачные технологии.",
+    "cta": "Связаться со мной",
+    "viewProjects": "Смотреть проекты"
+  },
+  "about": {
+    "title": "Обо мне",
+    "subtitle": "Немного о моём опыте и подходе к разработке",
+    "paragraphs": [
+      "Я фуллстак разработчик с опытом создания сложных веб-приложений — от MVP стартапов до высоконагруженных enterprise-систем.",
+      "Специализируюсь на TypeScript-экосистеме: React и Next.js на фронтенде, Node.js и NestJS на бэкенде. Люблю чистую архитектуру, типобезопасность и автоматизацию.",
+      "Верю, что хороший код — это код, который легко читать, тестировать и масштабировать. Каждый проект — это не просто набор фич, а продуманное решение бизнес-задачи."
+    ],
+    "stats": {
+      "experience": "Лет опыта",
+      "projects": "Проектов",
+      "technologies": "Технологий"
+    }
+  },
+  "skills": {
+    "title": "Навыки",
+    "subtitle": "Технологии, с которыми я работаю каждый день",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "tools": "Инструменты"
+    }
+  },
+  "projects": {
+    "title": "Проекты",
+    "subtitle": "Избранные работы из моего портфолио",
+    "demo": "Демо",
+    "github": "GitHub",
+    "items": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "Маркетплейс с микросервисной архитектурой, системой оплаты и real-time уведомлениями."
+      },
+      "taskManager": {
+        "title": "Task Management App",
+        "description": "Канбан-доска с drag-and-drop, коллаборацией в реальном времени и интеграцией с Telegram."
+      },
+      "analytics": {
+        "title": "Analytics Dashboard",
+        "description": "Дашборд аналитики с визуализацией данных, фильтрами и экспортом отчётов."
+      },
+      "apiGateway": {
+        "title": "API Gateway",
+        "description": "Высоконагруженный API Gateway с rate limiting, кешированием и мониторингом."
+      }
+    }
+  },
+  "contact": {
+    "title": "Связаться",
+    "subtitle": "Есть проект или идея? Напишите мне!",
+    "form": {
+      "name": "Имя",
+      "contact": "Контакт",
+      "message": "Сообщение",
+      "namePlaceholder": "Ваше имя",
+      "contactPlaceholder": "Email или @username в Telegram",
+      "messagePlaceholder": "Расскажите о вашем проекте или задаче...",
+      "submit": "Отправить заявку"
+    },
+    "success": {
+      "title": "Заявка отправлена!",
+      "description": "Спасибо за обращение. Я свяжусь с вами в ближайшее время."
+    },
+    "errors": {
+      "generic": "Что-то пошло не так",
+      "network": "Ошибка сети. Попробуйте позже."
+    }
+  },
+  "validation": {
+    "nameMin": "Имя должно содержать минимум 2 символа",
+    "nameMax": "Имя слишком длинное",
+    "contactMin": "Укажите email или Telegram",
+    "contactMax": "Контакт слишком длинный",
+    "messageMin": "Сообщение должно содержать минимум 10 символов",
+    "messageMax": "Сообщение слишком длинное"
+  },
+  "footer": {
+    "rights": "Все права защищены."
+  }
+}

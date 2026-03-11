@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b0d11;
-  --foreground: #e4e4e7;
-  --muted: #71717a;
-  --border: #27272a;
-  --card: #111318;
-  --accent: #10b981;
-  --accent-secondary: #06b6d4;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.08);
+  --card: rgba(255, 255, 255, 0.04);
+  --card-hover: rgba(255, 255, 255, 0.07);
+  --accent: #EF4444;
+  --accent-hover: #DC2626;
+  --glass-blur: 12px;
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -16,10 +19,27 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
   --color-accent: var(--accent);
-  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--card);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+  }
+
+  .glass-surface {
+    background: rgba(9, 9, 11, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 }
 
 body {
@@ -28,12 +48,22 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 ::selection {
-  background: oklch(0.6 0.18 165 / 0.3);
+  background: oklch(0.6 0.2 25 / 0.3);
 }
 
 ::-webkit-scrollbar {

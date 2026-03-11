@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Alex Developer — Fullstack Developer Portfolio",
+    "description": "Fullstack developer portfolio. Building modern web applications from idea to production.",
+    "ogTitle": "Alex Developer — Fullstack Developer",
+    "ogDescription": "Fullstack developer portfolio."
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "name": "Alex Developer",
+    "role": "Fullstack Developer",
+    "description": "Building modern web applications from idea to production. TypeScript, React, Node.js, and cloud technologies.",
+    "cta": "Get in touch",
+    "viewProjects": "View projects"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "A bit about my experience and approach to development",
+    "paragraphs": [
+      "I'm a fullstack developer with experience building complex web applications — from startup MVPs to high-load enterprise systems.",
+      "I specialize in the TypeScript ecosystem: React and Next.js on the frontend, Node.js and NestJS on the backend. I value clean architecture, type safety, and automation.",
+      "I believe that good code is code that's easy to read, test, and scale. Every project is not just a set of features, but a well-thought-out solution to a business problem."
+    ],
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Projects",
+      "technologies": "Technologies"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies I work with every day",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "tools": "Tools"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected works from my portfolio",
+    "demo": "Demo",
+    "github": "GitHub",
+    "items": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "Marketplace with microservice architecture, payment system, and real-time notifications."
+      },
+      "taskManager": {
+        "title": "Task Management App",
+        "description": "Kanban board with drag-and-drop, real-time collaboration, and Telegram integration."
+      },
+      "analytics": {
+        "title": "Analytics Dashboard",
+        "description": "Analytics dashboard with data visualization, filters, and report export."
+      },
+      "apiGateway": {
+        "title": "API Gateway",
+        "description": "High-load API Gateway with rate limiting, caching, and monitoring."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Have a project or idea? Write to me!",
+    "form": {
+      "name": "Name",
+      "contact": "Contact",
+      "message": "Message",
+      "namePlaceholder": "Your name",
+      "contactPlaceholder": "Email or @username on Telegram",
+      "messagePlaceholder": "Tell me about your project or task...",
+      "submit": "Send request"
+    },
+    "success": {
+      "title": "Request sent!",
+      "description": "Thank you for reaching out. I'll get back to you shortly."
+    },
+    "errors": {
+      "generic": "Something went wrong",
+      "network": "Network error. Please try again later."
+    }
+  },
+  "validation": {
+    "nameMin": "Name must be at least 2 characters",
+    "nameMax": "Name is too long",
+    "contactMin": "Please provide an email or Telegram",
+    "contactMax": "Contact is too long",
+    "messageMin": "Message must be at least 10 characters",
+    "messageMax": "Message is too long"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
