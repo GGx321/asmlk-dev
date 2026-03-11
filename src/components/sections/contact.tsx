@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Input } from "@/components/ui/input";
@@ -14,6 +15,7 @@ import type { ContactApiResponse } from "@/types";
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export function Contact() {
+  const t = useTranslations("contact");
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -41,7 +43,7 @@ export function Contact() {
 
       if (!response.ok || !result.success) {
         setStatus("error");
-        setErrorMessage(result.error ?? "Что-то пошло не так");
+        setErrorMessage(result.error ?? t("errors.generic"));
         return;
       }
 
@@ -49,7 +51,7 @@ export function Contact() {
       reset();
     } catch {
       setStatus("error");
-      setErrorMessage("Ошибка сети. Попробуйте позже.");
+      setErrorMessage(t("errors.network"));
     }
   }
 
@@ -62,10 +64,7 @@ export function Contact() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <SectionHeading
-            title="Связаться"
-            subtitle="Есть проект или идея? Напишите мне!"
-          />
+          <SectionHeading title={t("title")} subtitle={t("subtitle")} />
         </motion.div>
 
         <motion.div
@@ -74,37 +73,42 @@ export function Contact() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          {status === "success" ? <SuccessMessage /> : (
+          {status === "success" ? (
+            <SuccessMessage
+              title={t("success.title")}
+              description={t("success.description")}
+            />
+          ) : (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="space-y-5 rounded-xl border border-border/60 bg-card p-6 sm:p-8"
+              className="glass-card space-y-5 rounded-xl p-6 sm:p-8"
             >
               <Input
-                label="Имя"
+                label={t("form.name")}
                 id="name"
-                placeholder="Ваше имя"
+                placeholder={t("form.namePlaceholder")}
                 error={errors.name?.message}
                 {...register("name")}
               />
 
               <Input
-                label="Контакт"
+                label={t("form.contact")}
                 id="contact"
-                placeholder="Email или @username в Telegram"
+                placeholder={t("form.contactPlaceholder")}
                 error={errors.contact?.message}
                 {...register("contact")}
               />
 
               <Textarea
-                label="Сообщение"
+                label={t("form.message")}
                 id="message"
-                placeholder="Расскажите о вашем проекте или задаче..."
+                placeholder={t("form.messagePlaceholder")}
                 error={errors.message?.message}
                 {...register("message")}
               />
 
               {status === "error" && (
-                <p className="text-sm text-red-400">{errorMessage}</p>
+                <p className="text-sm text-accent">{errorMessage}</p>
               )}
 
               <Button
@@ -112,7 +116,7 @@ export function Contact() {
                 isLoading={status === "submitting"}
                 className="w-full"
               >
-                Отправить заявку
+                {t("form.submit")}
               </Button>
             </form>
           )}
@@ -122,9 +126,14 @@ export function Contact() {
   );
 }
 
-function SuccessMessage() {
+interface SuccessMessageProps {
+  title: string;
+  description: string;
+}
+
+function SuccessMessage({ title, description }: SuccessMessageProps) {
   return (
-    <div className="rounded-xl border border-accent/30 bg-accent/5 p-8 text-center">
+    <div className="glass-card rounded-xl border border-accent/30 p-8 text-center">
       <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
         <svg
           className="h-8 w-8 text-accent"
@@ -140,12 +149,8 @@ function SuccessMessage() {
           />
         </svg>
       </div>
-      <h3 className="text-lg font-semibold text-foreground">
-        Заявка отправлена!
-      </h3>
-      <p className="mt-2 text-sm text-muted">
-        Спасибо за обращение. Я свяжусь с вами в ближайшее время.
-      </p>
+      <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+      <p className="mt-2 text-sm text-muted">{description}</p>
     </div>
   );
 }
