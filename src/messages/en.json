@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Alex Developer — Fullstack Developer Portfolio",
-    "description": "Fullstack developer portfolio. Building modern web applications from idea to production.",
+    "title": "Alex Developer — From Idea to Working Product",
+    "description": "Fullstack developer. Building web products for entrepreneurs: modern stack, fast launch, fully ready for sales.",
     "ogTitle": "Alex Developer — Fullstack Developer",
-    "ogDescription": "Fullstack developer portfolio."
+    "ogDescription": "From idea to working product — turnkey."
   },
   "nav": {
     "about": "About",
@@ -16,7 +16,7 @@
     "greeting": "Hi, my name is",
     "name": "Alex Developer",
     "role": "Fullstack Developer",
-    "description": "Building modern web applications from idea to production. TypeScript, React, Node.js, and cloud technologies.",
+    "description": "Building web products for entrepreneurs: modern stack, fast launch, fully ready for sales.",
     "cta": "Get in touch",
     "viewProjects": "View projects"
   },
@@ -24,9 +24,9 @@
     "title": "About me",
     "subtitle": "A bit about my experience and approach to development",
     "paragraphs": [
-      "I'm a fullstack developer with experience building complex web applications — from startup MVPs to high-load enterprise systems.",
-      "I specialize in the TypeScript ecosystem: React and Next.js on the frontend, Node.js and NestJS on the backend. I value clean architecture, type safety, and automation.",
-      "I believe that good code is code that's easy to read, test, and scale. Every project is not just a set of features, but a well-thought-out solution to a business problem."
+      "I'm a fullstack developer with experience building products from scratch — from idea to a working MVP that brings first customers.",
+      "I specialize in the TypeScript ecosystem: React and Next.js on the frontend, Node.js and NestJS on the backend. A modern stack that lets you launch fast.",
+      "Every project is not just code, but a well-thought-out solution to a business problem. You come with an idea — you leave with a deployed product, ready for sales."
     ],
     "stats": {
       "experience": "Years of experience",
@@ -70,7 +70,7 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Have a project or idea? Write to me!",
+    "subtitle": "Have an idea? Let's talk about how to launch it",
     "form": {
       "name": "Name",
       "contact": "Contact",
@@ -86,7 +86,11 @@
     },
     "errors": {
       "generic": "Something went wrong",
-      "network": "Network error. Please try again later."
+      "network": "Network error. Please try again later.",
+      "rateLimited": "Please wait 30 seconds before resubmitting",
+      "sendFailed": "Failed to send message",
+      "serverError": "Server error. Please try again later.",
+      "validationError": "Please check your input"
     }
   },
   "validation": {

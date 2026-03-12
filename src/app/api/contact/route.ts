@@ -25,7 +25,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     if (isRateLimited(ip)) {
       return NextResponse.json(
-        { success: false, error: "Подождите 30 секунд перед повторной отправкой" },
+        { success: false, error: "rate_limited" },
         { status: 429 }
       );
     }
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const parsed = contactFormSchema.safeParse(body);
 
     if (!parsed.success) {
-      const firstError = parsed.error.issues[0]?.message ?? "Неверные данные";
+      const firstError = parsed.error.issues[0]?.message ?? "validation_error";
       return NextResponse.json(
         { success: false, error: firstError },
         { status: 400 }
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     if (!result.success) {
       return NextResponse.json(
-        { success: false, error: "Не удалось отправить сообщение" },
+        { success: false, error: "send_failed" },
         { status: 502 }
       );
     }
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json(
-      { success: false, error: "Внутренняя ошибка сервера" },
+      { success: false, error: "server_error" },
       { status: 500 }
     );
   }

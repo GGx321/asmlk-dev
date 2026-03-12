@@ -9,13 +9,31 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
+import { createContactFormSchema, type ContactFormValues } from "@/lib/validations";
 import type { ContactApiResponse } from "@/types";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
+const API_ERROR_MAP: Record<string, string> = {
+  rate_limited: "errors.rateLimited",
+  send_failed: "errors.sendFailed",
+  server_error: "errors.serverError",
+  validation_error: "errors.validationError",
+};
+
 export function Contact() {
   const t = useTranslations("contact");
+  const tv = useTranslations("validation");
+
+  const contactFormSchema = createContactFormSchema({
+    nameMin: tv("nameMin"),
+    nameMax: tv("nameMax"),
+    contactMin: tv("contactMin"),
+    contactMax: tv("contactMax"),
+    messageMin: tv("messageMin"),
+    messageMax: tv("messageMax"),
+  });
+
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -43,7 +61,8 @@ export function Contact() {
 
       if (!response.ok || !result.success) {
         setStatus("error");
-        setErrorMessage(result.error ?? t("errors.generic"));
+        const errorKey = API_ERROR_MAP[result.error ?? ""];
+        setErrorMessage(errorKey ? t(errorKey) : t("errors.generic"));
         return;
       }
 
