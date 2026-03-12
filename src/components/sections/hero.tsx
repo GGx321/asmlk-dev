@@ -55,18 +55,22 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
-            <a
+            <motion.a
               href="#contact"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
             >
               {t("cta")}
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="#projects"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
               className="glass-card inline-flex items-center justify-center gap-2 rounded-lg px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:border-white/15 hover:bg-card-hover"
             >
               {t("viewProjects")}
-            </a>
+            </motion.a>
           </motion.div>
         </div>
 

@@ -22,12 +22,14 @@ export function CtaBanner({ textKey }: CtaBannerProps) {
         <p className="text-xl font-semibold text-foreground sm:text-2xl">
           {t(textKey)}
         </p>
-        <a
+        <motion.a
           href="#contact"
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
         >
           {t("button")}
-        </a>
+        </motion.a>
       </div>
     </motion.div>
   );

@@ -38,6 +38,7 @@ export function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
               >
                 <Card className="flex h-full flex-col justify-between">
                   <div>

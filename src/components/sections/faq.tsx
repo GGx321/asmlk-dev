@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { PlusIcon } from "@phosphor-icons/react";
 
 const FAQ_KEYS = ["solo", "cheap", "support", "timeline"] as const;
 
@@ -41,11 +42,11 @@ export function Faq() {
                   <span className="pr-4 font-medium text-foreground">
                     {t(`items.${key}.question`)}
                   </span>
-                  <span
+                  <PlusIcon
+                    size={18}
+                    weight="bold"
                     className={`shrink-0 text-muted transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
-                  >
-                    +
-                  </span>
+                  />
                 </button>
                 <AnimatePresence>
                   {isOpen && (

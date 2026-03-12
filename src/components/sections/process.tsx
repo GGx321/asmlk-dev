@@ -3,12 +3,14 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { ChatDotsIcon, RulerIcon, LightningIcon, RocketIcon } from "@phosphor-icons/react";
+import type { Icon } from "@phosphor-icons/react";
 
-const STEPS = [
-  { key: "discovery" as const, icon: "💬", number: "01" },
-  { key: "design" as const, icon: "📐", number: "02" },
-  { key: "development" as const, icon: "⚡", number: "03" },
-  { key: "launch" as const, icon: "🚀", number: "04" },
+const STEPS: { key: "discovery" | "design" | "development" | "launch"; Icon: Icon; number: string }[] = [
+  { key: "discovery", Icon: ChatDotsIcon, number: "01" },
+  { key: "design", Icon: RulerIcon, number: "02" },
+  { key: "development", Icon: LightningIcon, number: "03" },
+  { key: "launch", Icon: RocketIcon, number: "04" },
 ];
 
 export function Process() {
@@ -34,12 +36,13 @@ export function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card relative rounded-xl p-6"
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="glass-card relative cursor-default rounded-xl p-6"
             >
               <span className="absolute right-4 top-4 font-mono text-xs text-muted/30">
                 {step.number}
               </span>
-              <span className="text-2xl">{step.icon}</span>
+              <step.Icon size={28} weight="duotone" className="text-accent" />
               <h3 className="mt-3 font-semibold text-foreground">
                 {t(`steps.${step.key}.title`)}
               </h3>
