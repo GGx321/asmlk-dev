@@ -1,8 +1,7 @@
 import type { Project, Skill, SocialLink } from "@/types";
 
 export const SITE_CONFIG = {
-  name: "Alex Developer",
-  email: "hello@example.com",
+  name: "Alex Samoliuk"
 } as const;
 
 export const SOCIAL_LINKS: SocialLink[] = [

@@ -8,11 +8,11 @@ export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden px-6">
-      <div className="pointer-events-none absolute right-0 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
+    <section className="relative grid min-h-screen overflow-hidden md:grid-cols-2">
+      <div className="relative flex items-center px-6 py-20 md:px-12 lg:px-20">
+        <div className="pointer-events-none absolute right-0 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center">
-        <div>
+        <div className="relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,27 +73,31 @@ export function Hero() {
             </motion.a>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center md:justify-end"
-        >
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-accent/10 blur-3xl" />
-            <div className="relative h-64 w-64 overflow-hidden rounded-full border-2 border-white/10 sm:h-80 sm:w-80">
-              <Image
-                src="/photo.webp"
-                alt="Alex Developer"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative flex items-center justify-center bg-black"
+      >
+        <div className="relative h-full w-full">
+          <Image
+            src="/photo.PNG"
+            alt="Alex Developer"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              boxShadow:
+                "inset 40px 0 60px -20px black, inset -40px 0 60px -20px black, inset 0 40px 60px -20px black, inset 0 -40px 60px -20px black",
+            }}
+          />
+        </div>
+      </motion.div>
 
       <ScrollIndicator />
     </section>
