@@ -15,7 +15,7 @@
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Alex Developer",
-    "role": "Fullstack Developer",
+    "role": "From Idea to Working Product — Turnkey",
     "description": "Building web products for entrepreneurs: modern stack, fast launch, fully ready for sales.",
     "cta": "Get in touch",
     "viewProjects": "View projects"
@@ -100,6 +100,55 @@
     "contactMax": "Contact is too long",
     "messageMin": "Message must be at least 10 characters",
     "messageMax": "Message is too long"
+  },
+  "process": {
+    "title": "How I Work",
+    "subtitle": "From first call to product launch",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "We discuss your idea, define the MVP and timeline. Free 30-minute call."
+      },
+      "design": {
+        "title": "Architecture",
+        "description": "I design the architecture, choose the stack, and align the structure with you."
+      },
+      "development": {
+        "title": "Development",
+        "description": "I write code and show progress. You see updates every week."
+      },
+      "launch": {
+        "title": "Launch",
+        "description": "I deploy, set up the domain, and verify everything. You get a ready product."
+      }
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Answers to the most common questions",
+    "items": {
+      "solo": {
+        "question": "Can one developer handle everything well?",
+        "answer": "Yes. My commercial experience is exactly in the full cycle: from architecture to deployment. I built products from scratch at a startup."
+      },
+      "cheap": {
+        "question": "Affordable means low quality?",
+        "answer": "Lower prices come from no team overhead, not from cutting corners. I have sold projects as proof of quality."
+      },
+      "support": {
+        "question": "What if something breaks after delivery?",
+        "answer": "The product is delivered fully working and deployed. That's part of the deal — I don't abandon projects halfway."
+      },
+      "timeline": {
+        "question": "How long does development take?",
+        "answer": "MVP takes 2 to 6 weeks depending on complexity. Exact timeline is discussed on the first call."
+      }
+    }
+  },
+  "cta": {
+    "afterAbout": "Have an idea? Let's discuss how to launch it",
+    "afterProjects": "Want the same result? Reach out",
+    "button": "Discuss project"
   },
   "footer": {
     "rights": "All rights reserved."

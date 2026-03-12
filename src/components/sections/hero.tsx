@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
@@ -78,9 +79,13 @@ export function Hero() {
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-accent/10 blur-3xl" />
             <div className="relative h-64 w-64 overflow-hidden rounded-full border-2 border-white/10 sm:h-80 sm:w-80">
-              <div className="flex h-full w-full items-center justify-center bg-white/5 text-4xl font-bold text-muted">
-                AD
-              </div>
+              <Image
+                src="/photo.webp"
+                alt="Alex Developer"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </motion.div>
