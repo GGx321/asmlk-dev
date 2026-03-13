@@ -79,13 +79,15 @@ export function Hero() {
   );
 
   return (
-    <section className="relative grid min-h-[100svh] overflow-hidden md:grid-cols-2">
+    <section
+      className="relative grid min-h-[100svh] overflow-hidden md:grid-cols-2"
+      style={{ background: "linear-gradient(to right, var(--background) 40%, #000 60%)" }}
+    >
       <div
         className="relative flex items-center px-6 py-24 md:py-20 md:px-12 lg:px-20"
         onMouseMove={handleMouseMove}
       >
         <div className="pointer-events-none absolute right-0 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
-        <div className="pointer-events-none absolute -right-20 top-0 hidden h-full w-80 bg-linear-to-r from-transparent to-black md:block" />
 
         <div className="pointer-events-none absolute bottom-12 left-10 hidden h-24 w-px bg-linear-to-b from-transparent via-accent/20 to-transparent md:block" />
 
@@ -164,7 +166,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative hidden items-center justify-center bg-black md:flex">
+      <div className="relative hidden items-center justify-center md:flex">
         <div className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-accent/5 blur-[120px]" />
         <motion.div
           initial={{ opacity: 0 }}
