@@ -27,6 +27,7 @@ import {
   LightningIcon,
   RobotIcon,
   DeviceMobileIcon,
+  StackSimpleIcon,
 } from "@phosphor-icons/react";
 import type { Icon } from "@phosphor-icons/react";
 
@@ -38,6 +39,7 @@ const SKILL_ICONS: Record<string, Icon> = {
   "Node.js": TreeStructureIcon,
   NestJS: HexagonIcon,
   PostgreSQL: DatabaseIcon,
+  Prisma: StackSimpleIcon,
   Redis: CirclesThreeIcon,
   Docker: PackageIcon,
   AWS: CloudIcon,
