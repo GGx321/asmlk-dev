@@ -36,23 +36,19 @@ export const SKILLS: Skill[] = [
 
 export const PROJECTS: Project[] = [
   {
-    tags: ["Next.js", "NestJS", "PostgreSQL", "Stripe", "WebSocket"],
-    href: "https://example.com",
-    github: "https://github.com",
+    tags: ["React", "TypeScript", "TON Connect", "Telegram Mini App"],
   },
   {
-    tags: ["React", "Node.js", "MongoDB", "Socket.io"],
-    href: "https://example.com",
-    github: "https://github.com",
+    tags: ["Next.js", "NestJS", "PostgreSQL", "Multi-chain", "WebSocket"],
   },
   {
-    tags: ["Next.js", "D3.js", "PostgreSQL", "Redis"],
-    href: "https://example.com",
-    github: "https://github.com",
+    tags: ["React", "TypeScript", "AI Integration", "REST API"],
   },
   {
-    tags: ["Node.js", "Redis", "Docker", "Prometheus"],
-    github: "https://github.com",
+    tags: ["Node.js", "Solidity", "EVM", "Multi-chain", "PostgreSQL"],
+  },
+  {
+    tags: ["Node.js", "EVM", "Telegram Bot API", "Web3.js"],
   },
 ];
 

@@ -13,10 +13,11 @@ import { Card } from "@/components/ui/card";
 import { PROJECTS } from "@/lib/constants";
 
 const PROJECT_KEYS = [
-  "ecommerce",
-  "taskManager",
-  "analytics",
-  "apiGateway",
+  "tonMiniApp",
+  "adminDashboard",
+  "mentalHealth",
+  "airdropService",
+  "evmBot",
 ] as const;
 
 const TILT_MAX_DEG = 8;
@@ -132,27 +133,10 @@ export function Projects() {
                       </div>
                     </div>
 
-                    <div className="mt-6 flex items-center gap-4">
-                      {project.href && (
-                        <a
-                          href={project.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-muted transition-colors hover:text-accent"
-                        >
-                          {t("demo")} &rarr;
-                        </a>
-                      )}
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-muted transition-colors hover:text-accent"
-                        >
-                          {t("github")} &rarr;
-                        </a>
-                      )}
+                    <div className="mt-6">
+                      <span className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-xs text-muted/60">
+                        NDA
+                      </span>
                     </div>
                   </Card>
                 </TiltCard>
