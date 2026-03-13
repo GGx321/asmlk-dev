@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Alex Developer — From Idea to Working Product",
+    "title": "Alex Samoliuk — From Idea to Working Product",
     "description": "Fullstack developer. Building web products for entrepreneurs: modern stack, fast launch, fully ready for sales.",
-    "ogTitle": "Alex Developer — Fullstack Developer",
+    "ogTitle": "Alex Samoliuk — Fullstack Developer",
     "ogDescription": "From idea to working product — turnkey."
   },
   "nav": {
@@ -14,7 +14,7 @@
   },
   "hero": {
     "greeting": "Hi, my name is",
-    "name": "Alex Developer",
+    "name": "Alex Samoliuk",
     "role": "From Idea to Working Product — Turnkey",
     "description": "Building web products for entrepreneurs: modern stack, fast launch, fully ready for sales.",
     "cta": "Get in touch",

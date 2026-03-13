@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Alex Developer — От идеи до готового продукта",
+    "title": "Alex Samoliuk — От идеи до готового продукта",
     "description": "Fullstack-разработчик. Создаю веб-продукты для предпринимателей: современный стек, быстрый запуск, полная готовность к продажам.",
-    "ogTitle": "Alex Developer — Fullstack Developer",
+    "ogTitle": "Alex Samoliuk — Fullstack Developer",
     "ogDescription": "От идеи до готового продукта — под ключ."
   },
   "nav": {
@@ -14,7 +14,7 @@
   },
   "hero": {
     "greeting": "Привет, меня зовут",
-    "name": "Alex Developer",
+    "name": "Alex Samoliuk",
     "role": "От идеи до готового продукта — под ключ",
     "description": "Разрабатываю веб-продукты для предпринимателей: современный стек, быстрый запуск, полная готовность к продажам.",
     "cta": "Связаться со мной",
