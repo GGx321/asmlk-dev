@@ -48,24 +48,26 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Selected works from my portfolio",
-    "demo": "Demo",
-    "github": "GitHub",
     "items": {
-      "ecommerce": {
-        "title": "E-Commerce Platform",
-        "description": "Marketplace with microservice architecture, payment system, and real-time notifications."
+      "tonMiniApp": {
+        "title": "Telegram Mini App — TON Network",
+        "description": "Gaming app inside Telegram with TON Connect integration: wallet connection, on-chain transactions, smart contract interactions. Built the frontend from scratch — authored 40% of the codebase."
       },
-      "taskManager": {
-        "title": "Task Management App",
-        "description": "Kanban board with drag-and-drop, real-time collaboration, and Telegram integration."
+      "adminDashboard": {
+        "title": "Multi-Tenant Admin Dashboard",
+        "description": "Fullstack management system: visit analytics, multi-chain crypto payments, sub-account creation with site binding. Frontend and backend built from scratch with multi-chain payment integration."
       },
-      "analytics": {
-        "title": "Analytics Dashboard",
-        "description": "Analytics dashboard with data visualization, filters, and report export."
+      "mentalHealth": {
+        "title": "Mental Health Platform + AI",
+        "description": "Refactored legacy codebase and integrated an AI assistant with backend APIs. Stabilized the product after multiple previous teams — accelerated the release cycle."
       },
-      "apiGateway": {
-        "title": "API Gateway",
-        "description": "High-load API Gateway with rate limiting, caching, and monitoring."
+      "airdropService": {
+        "title": "Crypto Airdrop Service",
+        "description": "Fullstack service built from scratch: multi-chain architecture, smart contract integration, automated token distribution. From DB schema to UI."
+      },
+      "evmBot": {
+        "title": "Telegram Bot + EVM Integration",
+        "description": "Bot built from scratch: on-chain event tracking, wallet management, and automated transactions via chat interface. Multi-network EVM integration."
       }
     }
   },
