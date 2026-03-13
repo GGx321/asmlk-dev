@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: "GitHub", href: "https://github.com", icon: "github" },
-  { label: "Telegram", href: "https://t.me", icon: "telegram" },
+  { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
   { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
 ];
 
@@ -18,6 +18,7 @@ export const SKILLS: Skill[] = [
   { name: "Node.js", icon: "\uD83D\uDFE2", category: "backend" },
   { name: "NestJS", icon: "\uD83D\uDC08", category: "backend" },
   { name: "PostgreSQL", icon: "\uD83D\uDC18", category: "backend" },
+  { name: "Prisma", icon: "🔷", category: "backend" },
   { name: "Redis", icon: "\uD83D\uDD34", category: "backend" },
   { name: "Docker", icon: "\uD83D\uDC33", category: "devops" },
   { name: "AWS", icon: "\u2601\uFE0F", category: "devops" },
