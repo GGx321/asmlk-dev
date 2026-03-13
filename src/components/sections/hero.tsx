@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ROLES = [
   "Fullstack Developer",
@@ -57,44 +57,19 @@ function useTypingAnimation(words: readonly string[]): string {
   return displayText;
 }
 
-const CURSOR_SPRING = { stiffness: 150, damping: 15 } as const;
-
 export function Hero() {
   const t = useTranslations("hero");
   const typedRole = useTypingAnimation(ROLES);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, CURSOR_SPRING);
-  const smoothY = useSpring(mouseY, CURSOR_SPRING);
-  const gradientBg = useMotionTemplate`radial-gradient(600px circle at ${smoothX}px ${smoothY}px, rgba(239, 68, 68, 0.04), transparent 40%)`;
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const rect = e.currentTarget.getBoundingClientRect();
-      mouseX.set(e.clientX - rect.left);
-      mouseY.set(e.clientY - rect.top);
-    },
-    [mouseX, mouseY],
-  );
 
   return (
     <section
       className="relative grid min-h-[100svh] overflow-hidden md:grid-cols-2"
       style={{ background: "linear-gradient(to right, var(--background) 40%, #000 60%)" }}
     >
-      <div
-        className="relative flex items-center px-6 py-24 md:py-20 md:px-12 lg:px-20"
-        onMouseMove={handleMouseMove}
-      >
+      <div className="relative flex items-center px-6 py-24 md:py-20 md:px-12 lg:px-20">
         <div className="pointer-events-none absolute right-0 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
 
         <div className="pointer-events-none absolute bottom-12 left-10 hidden h-24 w-px bg-linear-to-b from-transparent via-accent/20 to-transparent md:block" />
-
-        <motion.div
-          className="pointer-events-none absolute inset-0 hidden md:block"
-          style={{ background: gradientBg }}
-        />
 
         <div className="relative z-10">
           <motion.p
