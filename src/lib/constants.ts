@@ -22,7 +22,16 @@ export const SKILLS: Skill[] = [
   { name: "Docker", icon: "\uD83D\uDC33", category: "devops" },
   { name: "AWS", icon: "\u2601\uFE0F", category: "devops" },
   { name: "CI/CD", icon: "\uD83D\uDD04", category: "devops" },
+  { name: "Web3 / DApps", icon: "🔗", category: "web3" },
+  { name: "EVM / Solidity", icon: "⛓️", category: "web3" },
+  { name: "TON", icon: "💎", category: "web3" },
+  { name: "TRON", icon: "⚡", category: "web3" },
+  { name: "Telegram Bots", icon: "🤖", category: "web3" },
+  { name: "Mini Apps", icon: "📱", category: "web3" },
   { name: "Git", icon: "\uD83D\uDCE6", category: "tools" },
+  { name: "Figma", icon: "🎯", category: "tools" },
+  { name: "VS Code", icon: "💻", category: "tools" },
+  { name: "Postman", icon: "📮", category: "tools" },
 ];
 
 export const PROJECTS: Project[] = [

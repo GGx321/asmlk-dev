@@ -1,16 +1,98 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
+
+const ROLES = [
+  "Fullstack Developer",
+  "React & Next.js Expert",
+  "Node.js Engineer",
+  "UI/UX Enthusiast",
+] as const;
+
+const TYPING_SPEED_MS = 50;
+const DELETING_SPEED_MS = 30;
+const PAUSE_AFTER_TYPING_MS = 2000;
+const PAUSE_AFTER_DELETING_MS = 300;
+
+function useTypingAnimation(words: readonly string[]): string {
+  const [displayText, setDisplayText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+    const isTypingComplete = displayText.length === currentWord.length;
+    const isDeletingComplete = displayText.length === 0 && isDeleting;
+
+    let delay: number;
+    if (!isDeleting) {
+      delay = isTypingComplete ? PAUSE_AFTER_TYPING_MS : TYPING_SPEED_MS;
+    } else {
+      delay = isDeletingComplete ? PAUSE_AFTER_DELETING_MS : DELETING_SPEED_MS;
+    }
+
+    const timeoutId = setTimeout(() => {
+      if (!isDeleting) {
+        if (!isTypingComplete) {
+          setDisplayText(currentWord.slice(0, displayText.length + 1));
+        } else {
+          setIsDeleting(true);
+        }
+      } else {
+        if (!isDeletingComplete) {
+          setDisplayText(displayText.slice(0, -1));
+        } else {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, delay);
+
+    return () => clearTimeout(timeoutId);
+  }, [displayText, wordIndex, isDeleting, words]);
+
+  return displayText;
+}
+
+const CURSOR_SPRING = { stiffness: 150, damping: 15 } as const;
 
 export function Hero() {
   const t = useTranslations("hero");
+  const typedRole = useTypingAnimation(ROLES);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const smoothX = useSpring(mouseX, CURSOR_SPRING);
+  const smoothY = useSpring(mouseY, CURSOR_SPRING);
+  const gradientBg = useMotionTemplate`radial-gradient(600px circle at ${smoothX}px ${smoothY}px, rgba(239, 68, 68, 0.04), transparent 40%)`;
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      mouseX.set(e.clientX - rect.left);
+      mouseY.set(e.clientY - rect.top);
+    },
+    [mouseX, mouseY],
+  );
 
   return (
-    <section className="relative grid min-h-screen overflow-hidden md:grid-cols-2">
-      <div className="relative flex items-center px-6 py-20 md:px-12 lg:px-20">
+    <section className="relative grid min-h-[100svh] overflow-hidden md:grid-cols-2">
+      <div
+        className="relative flex items-center px-6 py-24 md:py-20 md:px-12 lg:px-20"
+        onMouseMove={handleMouseMove}
+      >
         <div className="pointer-events-none absolute right-0 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-accent/5 blur-[150px]" />
+        <div className="pointer-events-none absolute -right-20 top-0 hidden h-full w-80 bg-linear-to-r from-transparent to-black md:block" />
+
+        <div className="pointer-events-none absolute bottom-12 left-10 hidden h-24 w-px bg-linear-to-b from-transparent via-accent/20 to-transparent md:block" />
+
+        <motion.div
+          className="pointer-events-none absolute inset-0 hidden md:block"
+          style={{ background: gradientBg }}
+        />
 
         <div className="relative z-10">
           <motion.p
@@ -37,7 +119,14 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-2 text-2xl font-semibold text-muted sm:text-3xl"
           >
-            {t("role")}
+            {typedRole}
+            <motion.span
+              animate={{ opacity: [1, 1, 0, 0] }}
+              transition={{ duration: 1, repeat: Infinity, times: [0, 0.5, 0.5, 1] }}
+              className="ml-0.5 inline-block font-light text-accent"
+            >
+              |
+            </motion.span>
           </motion.p>
 
           <motion.p
@@ -75,13 +164,14 @@ export function Hero() {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="relative flex items-center justify-center bg-black"
-      >
-        <div className="relative h-full w-full">
+      <div className="relative hidden items-center justify-center bg-black md:flex">
+        <div className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-accent/5 blur-[120px]" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative aspect-3/4 w-[320px] sm:w-[380px] lg:w-[420px]"
+        >
           <Image
             src="/photo.PNG"
             alt="Alex Developer"
@@ -93,11 +183,11 @@ export function Hero() {
             className="pointer-events-none absolute inset-0"
             style={{
               boxShadow:
-                "inset 40px 0 60px -20px black, inset -40px 0 60px -20px black, inset 0 40px 60px -20px black, inset 0 -40px 60px -20px black",
+                "inset 80px 0 80px -30px black, inset -50px 0 60px -20px black, inset 0 50px 70px -20px black, inset 0 -60px 80px -20px black",
             }}
           />
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
       <ScrollIndicator />
     </section>

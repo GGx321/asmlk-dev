@@ -18,6 +18,15 @@ import {
   CloudIcon,
   ArrowsClockwiseIcon,
   GitBranchIcon,
+  FigmaLogoIcon,
+  MonitorIcon,
+  PaperPlaneTiltIcon,
+  LinkIcon,
+  CubeIcon,
+  DiamondIcon,
+  LightningIcon,
+  RobotIcon,
+  DeviceMobileIcon,
 } from "@phosphor-icons/react";
 import type { Icon } from "@phosphor-icons/react";
 
@@ -34,15 +43,24 @@ const SKILL_ICONS: Record<string, Icon> = {
   AWS: CloudIcon,
   "CI/CD": ArrowsClockwiseIcon,
   Git: GitBranchIcon,
+  "Web3 / DApps": LinkIcon,
+  "EVM / Solidity": CubeIcon,
+  TON: DiamondIcon,
+  TRON: LightningIcon,
+  "Telegram Bots": RobotIcon,
+  "Mini Apps": DeviceMobileIcon,
+  Figma: FigmaLogoIcon,
+  "VS Code": MonitorIcon,
+  Postman: PaperPlaneTiltIcon,
 };
 
-const CATEGORIES: SkillCategory[] = ["frontend", "backend", "devops", "tools"];
+const CATEGORIES: SkillCategory[] = ["frontend", "backend", "devops", "web3", "tools"];
 
 export function Skills() {
   const t = useTranslations("skills");
 
   return (
-    <section id="skills" className="px-6 py-24">
+    <section id="skills" className="bg-white/[0.02] px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

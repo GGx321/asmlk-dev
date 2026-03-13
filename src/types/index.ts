@@ -10,7 +10,7 @@ export interface Skill {
   category: SkillCategory;
 }
 
-export type SkillCategory = "frontend" | "backend" | "devops" | "tools";
+export type SkillCategory = "frontend" | "backend" | "devops" | "web3" | "tools";
 
 export interface SocialLink {
   label: string;

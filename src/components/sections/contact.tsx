@@ -75,7 +75,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="px-6 py-24">
+    <section id="contact" className="bg-white/[0.02] px-6 py-24">
       <div className="mx-auto max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
