@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/GGx321", icon: "github" },
   { label: "Instagram", href: "https://www.instagram.com/asmlk.dev", icon: "instagram" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/oleksandr-samoliuk-0ab1203b7", icon: "linkedin" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/asmlk-dev", icon: "linkedin" },
 ];
 
 export const SKILLS: Skill[] = [
