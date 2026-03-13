@@ -71,11 +71,20 @@ export async function generateMetadata({
       url: '/',
       siteName: 'Alex Samoliuk',
       locale: locale === 'ru' ? 'ru_RU' : 'en_US',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1024,
+          height: 1024,
+          alt: 'Alex Samoliuk — Fullstack Developer',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['/og-image.png'],
     },
   };
 }
